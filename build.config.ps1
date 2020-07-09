@@ -1,0 +1,3 @@
+$env:DOCKER_APPLICATION_VERSION="2002"
+$env:DOCKER_REPO = "cspeers"
+$env:DOCKER_IMAGE = "azsposh"
