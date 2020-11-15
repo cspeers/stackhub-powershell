@@ -1,5 +1,6 @@
 # Indicates that the windowsservercore image will be used as the base image.
-FROM mcr.microsoft.com/windows/servercore:ltsc2019
+ARG BASE_IMAGE=mcr.microsoft.com/windows/servercore:ltsc2019
+FROM ${BASE_IMAGE}
 #Stack PowerShell DockerFile
 ARG STAMPVERSION=1901
 ARG NUGETVERSION=2.8.5.201

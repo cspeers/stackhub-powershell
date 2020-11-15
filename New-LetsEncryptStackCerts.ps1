@@ -19,14 +19,14 @@ param
     [Parameter(Mandatory = $false,ValueFromPipelineByPropertyName=$true)]
     [ValidateSet('SHA256', 'SHA384', 'SHA512')]
     [string]$HashAlgorithm = 'SHA256',
-    [Parameter(ValueFromPipelineByPropertyName=$true)]
-    [string]$SubscriptionId='73d55f68-40e5-4820-9e4b-6950dee6ac8a',
-    [Parameter(ValueFromPipelineByPropertyName=$true)]
-    [string]$ClientId='d614a3e2-e783-4640-94be-d48c9671e200',
-    [Parameter(ValueFromPipelineByPropertyName=$true)]
-    [string]$ClientSecret='DJE-Z]dB5/z1Sd[PqVeKy9A7rTF:192m',
-    [Parameter(ValueFromPipelineByPropertyName=$true)]
-    [string]$TenantId='ci.avahc.com',
+    [Parameter(ValueFromPipelineByPropertyName=$true,Mandatory=$true)]
+    [string]$SubscriptionId,
+    [Parameter(ValueFromPipelineByPropertyName=$true,Mandatory=$true)]
+    [string]$ClientId,
+    [Parameter(ValueFromPipelineByPropertyName=$true,Mandatory=$true)]
+    [string]$ClientSecret,
+    [Parameter(ValueFromPipelineByPropertyName=$true,Mandatory=$true)]
+    [string]$TenantId,
     [Parameter(Mandatory=$true,ValueFromPipelineByPropertyName=$true)]
     [SecureString]$CertificatePassword,
     [Parameter(ValueFromPipelineByPropertyName=$true)]
@@ -34,7 +34,7 @@ param
     [Parameter(ValueFromPipelineByPropertyName=$true)]
     [PSCustomObject]$LEServer=(Get-PAServer)
 )
-
+ 
 #region Main Block
 
 Write-Information "Creating Azure Stack Let's Encrypt Certificate Set for $ExternalFQDN ADFS:$IsAdfs PaaS:$CreatePAAS"
